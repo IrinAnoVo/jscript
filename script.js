@@ -1,71 +1,115 @@
-// 1. Напишите метод, который принимает два целых числа и возвращает их сумму.
-     console.log('Hello')
-     //let num1 = Number(prompt('enter number'));
-     //let num2 = Number(prompt('enter number'));
-    function add(num1, num2) {   
-        console.log(num1 + num2)    
-    }
-    console.log(add(4, 5))
-   
-    // 2. Напишите метод, который принимает два числа и возвращает их разность.
-    function subtract(num1, num2) {
-        console.log(num1 - num2)
-    }
+console.log('hello')
+// 11. Напишите метод, который принимает массив чисел и возвращает их сумму.
+function sumArray(numbers) {
+   let sum = 0;
+   for (let i = 0; i < numbers.length; i++) {
+       sum = sum + numbers[i];
+   }
+   console.log(sum)
+}
 
-    // 3. Напишите метод, который принимает два числа и возвращает их произведение.
-    function multiply(num1, num2) {
-        console.log(num1 * num2)
-    }
+// 12. Напишите метод, который принимает два числа и возводит первое в степень второго.
+function power(base, exponent) {
+   let result = 1;
+   for (let i = 0; i < exponent; i++) {
+       result = result * base;
+   }
+   console.log(result)
+}
 
-    // 4. Напишите метод, который принимает два числа и возвращает их частное.
-    function divide(num1, num2) {
-    console.log(num1 / num2)        
-    }
+// 13. Напишите метод, который проверяет, является ли число простым.
+function isPrime(number) {
+   for (let i = 2; i < number; i++) {
+       if (number % i == 0) {
+           return false;
+       }
+   }
+return true;
+}
 
-    // 5. Напишите метод, который принимает число и возвращает его квадрат.
-    function square(num1) {
-        console.log(num1 ** 2)
+// 14. Напишите метод, который принимает два числа и возвращает их наибольший общий делитель (НОД).
+function gcd(num1, num2) {
+    while (num2 !== 0) {
+        let temp = num2;
+        num2 = num1 % num2;
+        num1 = temp;
     }
+    return num1;
+}
 
-    // 6. Напишите метод, который принимает три числа и возвращает их среднее арифметическое.
-    function average(num1, num2, num3) {
-        console.log((num1 + num2 + num3) / 3)
-    }
 
-    // 7. Напишите метод, который принимает два числа и возвращает остаток от их деления.
-    function modulus(num1, num2) {
-        console.log(num1 % num2)
-    }
+// 15. Напишите метод, который принимает массив чисел и возвращает его максимальный элемент.
+function maxInArray(numbers) {
+   let max = numbers[0];
+   for (let i = 1; i < numbers.length; i++) {
+       if (numbers[i] > max) {
+           max = numbers[i];
+       }
+   }
+   return max;
+}
 
-    // 8. Напишите метод, который принимает два числа и возвращает большее из них.
-    function max(num1, num2) {
-        let max = 0;
-        if (num1 > num2) {
-            max = num1;
-        } else {
-            max = num2;
-        }
-        console.log(max)
-    }
+// 16. Напишите метод, который принимает массив чисел и возвращает его минимальный элемент.
+function minInArray(numbers) {
+   let min = numbers[0];
+   for (let i = 1; i < numbers.length; i++) {
+       if (numbers[i] < min) {
+           min = numbers[i];
+       }
+   }
+   return min;
+}
 
-    /// 9. Напишите метод, который принимает два числа и возвращает меньшее из них.
-    function min(num1, num2) {
-        let min = 0;
-        if (num1 < num2) {
-            min = num1;
-        } else {
-            min = num2;
-        }
-        console.log(min);
-    }
+// 17. Напишите метод, который проверяет, является ли число палиндромом
+// (одинаково читается слева направо и справа налево).
+function isPalindrome(number) {
+   let palindrome = number.toString();
+   for (let i = 0; i < palindrome.length() / 2; i++)
+       if (palindrome.charAt(i)!= palindrome.charAt(palindrome.length() - i - 1)) {
+           return false;
+       }
+   return true;
+   }
 
-    // 10. Напишите метод, который принимает число и проверяет, является ли оно четным.
-    // Возвращает true, если число четное, и false, если нечетное.
-    function isEven(num1) {
-        if (num1 % 2 == 0) {
-            console.log(true)
-        } else {
-            console.log(false)
-        }
+// 18. Напишите метод, который возвращает n-ое число Фибоначчи.
+function fibonacci(n) {
+   if (n < 0) {
+       throw new Errer('n must be non-negative');
+   }
+   if (n == 0) {
+       return 0;
+   }
+   if (n == 1) {
+       return 1;
+   }
+   let fib1 = 0; // Начальные два
+   let fib2 = 1; // числа Фибоначчи
+   for (let i = 2; i <= n; i++) {
+    let temp = fib1 + fib2;
+       fib1 = fib2;
+       fib2 = temp;
+   }
+   return fib2; // Возвращаем n-е число Фибоначчи
+}
+
+// 19. Напишите метод, который принимает массив чисел и сортирует его по возрастанию.
+function sortArray(numbers) {
+   return numbers.sort((num1, num2) => num1 - num2);
+}
+
+// 20. Напишите метод, который принимает два числа и возвращает их наименьшее общее кратное (НОК).
+function gcd(num1, num2) {
+    while (num2 !== 0) { //алгоритм Евклида
+        let temp = num2;
+        num2 = num1 % num2;
+        num1 = temp;
     }
-    console.log(isEven(6))
+    return num1;
+}
+
+function lcm(num1, num2) {
+    if (num1 === 0 || num2 === 0) {
+        return 0;
+    return Math.abs(num1 * num2) / gcd(num1, num2); //формула для НОК
+    }
+}
